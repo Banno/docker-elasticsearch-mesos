@@ -27,4 +27,21 @@ RUN cd /opt/ && \
 
 # Should fix the 'file not found' for config/mesos.yml
 WORKDIR /opt/elasticsearch-mesos/
+
+## Need to write the following configs in
+## Setup to be written in the same way as rabbitmq configs are written?
+## Just as the main start script. (which will wrap `./bin/elasticsearch-mesos`)
+
+# `config/mesos.yml`
+# - mesos.master.url
+# - elasticsearch.noOfHwNodes
+# - resource.cpus
+# - resource.mem
+# - resource.disk
+
+# `config/elasticsearch.yml`
+# - cluster.name => elasticsearch // default
+# - transport.tcp.port
+# - http.port
+
 CMD ["./bin/elasticsearch-mesos"]
