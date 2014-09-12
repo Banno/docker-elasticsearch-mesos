@@ -19,6 +19,11 @@ __Ones you won't__
 
 ## Ports Exposed
 
+__Defaults__
+
+- 9200
+- 9300
+
 ## Steps
 
 __build__
