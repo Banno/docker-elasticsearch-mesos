@@ -1,7 +1,7 @@
 #!/bin/bash
 
-HTTP_PORT=${HTTP_PORT:-9200}
-DATA_PORT=${DATA_PORT:-9300}
+HTTP_PORT=${HTTP_PORT:-$PORT0}
+DATA_PORT=${DATA_PORT:-$PORT1}
 CLUSTER_NAME=${CLUSTER_NAME:-elasticsearch}
 
 cat > /opt/elasticsearch-mesos/config/elasticsearch.yml <<EOF
