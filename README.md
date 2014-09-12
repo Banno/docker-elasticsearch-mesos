@@ -4,6 +4,19 @@ A docker container which runs the [elasticsearch-mesos] framework
 
 ## Environmental Variable
 
+__Things you'll probably change__
+
+- DISK_REQUESTED
+- MEMORY_REQUESTED
+- CPU_UNITS_REQUESTED
+
+__Ones you won't__
+
+- EXECUTOR_URI
+- MESOS_MASTER_URL
+- JAVA_LIB_PATH
+- NUMBER_OF_NODES
+
 ## Ports Exposed
 
 ## Steps

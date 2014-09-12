@@ -18,30 +18,13 @@ RUN cd /opt/ && \
     rm elasticsearch-mesos.tar.gz && \
     mv elasticsearch-mesos-1.3.2-0.20.0-1 elasticsearch-mesos
 
-## todo: override transport.tcp.port and http.port in
-## elasticsearch-mesos/config/elasticsearch.yml
-## with PORT0/PORT1 or whatever as env variables
-## which are ran with the container.
-
-## todo: put the logging env variable back into the elasticsearch-mesos project.
-
 # Should fix the 'file not found' for config/mesos.yml
 WORKDIR /opt/elasticsearch-mesos/
 
-## Need to write the following configs in
-## Setup to be written in the same way as rabbitmq configs are written?
-## Just as the main start script. (which will wrap `./bin/elasticsearch-mesos`)
+## Add startup scripts.
+ADD scripts/write-elasticsearch-config.sh /opt/elasticsearch-mesos/bin/write-elasticsearch-config.sh
+ADD scripts/write-mesos-config.sh /opt/elasticsearch-mesos/bin/write-mesos-config.sh
+ADD start.sh /opt/elasticsearch-mesos/bin/start.sh
+RUN chmod +x /opt/elasticsearch-mesos/bin/*sh
 
-# `config/mesos.yml`
-# - mesos.master.url
-# - elasticsearch.noOfHwNodes
-# - resource.cpus
-# - resource.mem
-# - resource.disk
-
-# `config/elasticsearch.yml`
-# - cluster.name => elasticsearch // default
-# - transport.tcp.port
-# - http.port
-
-CMD ["./bin/elasticsearch-mesos"]
+CMD ["/opt/elasticsearch-mesos/bin/start.sh"]
