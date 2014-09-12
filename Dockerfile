@@ -12,11 +12,11 @@ RUN apt-get install -y apt-transport-https
 RUN apt-get -y update && apt-get -y install mesos
 
 # Download the prebuilt tarbal
-RUN wget -O /opt/elasticsearch-mesos.tar.gz https://s3.amazonaws.com/adam-sandbox/elasticsearch-mesos-1.3.2-0.20.0-1.tgz
-RUN cd /opt/ && \
-    tar xf elasticsearch-mesos.tar.gz && \
-    rm elasticsearch-mesos.tar.gz && \
-    mv elasticsearch-mesos-1.3.2-0.20.0-1 elasticsearch-mesos
+WORKDIR /opt/
+ADD elasticsearch-mesos-1.3.2-0.20.0-1.tgz /opt/elasticsearch-mesos-1.3.2-0.20.0-1.tar.gz
+RUN mkdir -p /opt/elasticsearch-mesos/
+RUN cp -R /opt/elasticsearch-mesos-1.3.2-0.20.0-1.tar.gz/*/* /opt/elasticsearch-mesos/
+RUN rm -rf /opt/elasticsearch-mesos-*
 
 # Should fix the 'file not found' for config/mesos.yml
 WORKDIR /opt/elasticsearch-mesos/
