@@ -54,4 +54,4 @@ docker push registry.banno-internal.com/elasticsearch-mesos
 ```
 
 [banno-deploy]: https://github.com/Banno/banno-deploy
-[elasticsearch-mesos]: https://github.com/Banno/elasticsearch-mesos
+[elasticsearch-mesos]: https://github.com/Banno/elasticsearch-mesos/tree/cleanup
