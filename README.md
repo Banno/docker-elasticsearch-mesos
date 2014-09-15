@@ -2,6 +2,11 @@
 
 A docker container which runs the [elasticsearch-mesos] framework
 
+## Versions
+
+- Elasticsearch: `0.90.10-1`
+- Mesos: `0.20.0-1`
+
 ## Environmental Variable
 
 __Things you'll probably change__
